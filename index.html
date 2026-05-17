@@ -1,757 +1,931 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GiroCupo Deploy Agent v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Vender Cupo en Dólares en Chile: Cotización en 15 Min, Pago Hoy | vendocupo.cl</title>
+<meta name="description" content="Vende tu cupo en dólares hoy. Cotización en menos de 15 minutos, pago el mismo día hábil. Visa, Mastercard y Amex. Sin claves bancarias.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vendocupo.cl/">
+<meta property="og:title" content="Vendo Cupo en Dólares | Cotización Inmediata">
+<meta property="og:description" content="Vende tu cupo en dólares hoy. Cotización en 15 min, pago el mismo día.">
+<meta property="og:url" content="https://vendocupo.cl/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FinancialService",
+      "name": "VendoCupo.cl",
+      "description": "Compra de cupo en dólares de tarjetas de crédito Visa, Mastercard y American Express en Chile. Cotización inmediata, pago el mismo día hábil.",
+      "url": "https://www.vendocupo.cl/",
+      "telephone": "+56-2-3210-8299",
+      "foundingDate": "2002",
+      "openingHours": "Mo-Fr 09:00-18:30",
+      "serviceType": "Compra de cupo en dólares",
+      "areaServed": {"@type": "Country", "name": "Chile"},
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+56-2-3210-8299",
+          "contactType": "customer service",
+          "availableLanguage": "Spanish",
+          "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:30"}
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+56-9-6302-6000",
+          "contactType": "sales",
+          "contactOption": "WhatsApp",
+          "availableLanguage": "Spanish"
+        }
+      ],
+      "sameAs": ["https://www.girodolares.cl/"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Es legal vender cupo en dólares en Chile?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Sí. La compraventa de cupo en dólares de tarjeta de crédito es una operación legal en Chile. Es una transacción privada entre particulares y empresas del rubro financiero. Opera con normalidad desde hace más de 20 años en el mercado chileno."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué bancos trabajan?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Trabajamos con tarjetas emitidas por los principales bancos de Chile: Santander, Banco de Chile, BCI, Itaú, Scotiabank y Falabella, entre otros. Las tarjetas deben ser Visa, Mastercard o American Express con cupo disponible en dólares."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Piden claves bancarias o acceso a mi cuenta?",
+          "acceptedAnswer": {"@type": "Answer", "text": "No. Nunca solicitamos claves bancarias, PIN, coordenadas ni acceso a banca online. En ninguna etapa del proceso. Si algún operador te pide esos datos, detén la operación de inmediato."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto demora la operación?",
+          "acceptedAnswer": {"@type": "Answer", "text": "La cotización se entrega en menos de 15 minutos desde que envías tu mensaje. Si aceptas, el pago se realiza el mismo día hábil mediante transferencia bancaria directa a tu cuenta."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el monto mínimo para operar?",
+          "acceptedAnswer": {"@type": "Answer", "text": "El monto mínimo es USD 300. No existe tope máximo. Puedes operar montos mayores con total normalidad. El precio final depende del tipo de cambio del día y se informa en la cotización."}
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+:root {
+  /* Paleta corporativa financiera */
+  --bg:        #EEF2F7;
+  --bg-card:   #FFFFFF;
+  --bg-dark:   #1A2540;
+  --bg-darker: #111827;
+  --blue:      #1A3A6B;
+  --blue-mid:  #2656A8;
+  --blue-bright:#3B82F6;
+  --blue-light:#E8F0FB;
+  --blue-rule: #C5D5EE;
+  --green:     #15803D;
+  --green-bg:  #F0FDF4;
+  --green-border:#BBF7D0;
+  --red:       #991B1B;
+  --red-bg:    #FEF2F2;
+  --red-border:#FEE2E2;
+  --text:      #1A2540;
+  --text-mid:  #374151;
+  --text-dim:  #6B7280;
+  --text-faint:#9CA3AF;
+  --border:    #D1DCE8;
+  --border-light:#E5ECF5;
+  --white:     #FFFFFF;
+  --shadow-sm: 0 1px 4px rgba(26,37,64,0.07);
+  --shadow-md: 0 4px 16px rgba(26,37,64,0.10);
+  --shadow-lg: 0 8px 32px rgba(26,37,64,0.13);
+  --font-serif:'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
 
-  :root {
-    --bg: #0a0e14;
-    --bg2: #0f1520;
-    --bg3: #151d2e;
-    --border: #1e2d45;
-    --border-bright: #2a4060;
-    --accent: #00b4d8;
-    --accent2: #0077b6;
-    --green: #06d6a0;
-    --red: #ef476f;
-    --yellow: #ffd166;
-    --text: #cdd6f4;
-    --text-dim: #6b7fa3;
-    --text-bright: #e8f0fe;
-    --mono: 'JetBrains Mono', monospace;
-    --sans: 'Space Grotesk', sans-serif;
-  }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+body { font-family:var(--font-sans); background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── TOP BAR institucional ── */
+.top-bar {
+  background:var(--bg-dark);
+  color:rgba(255,255,255,0.7);
+  font-size:12px;
+  padding:8px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.top-bar-left { display:flex; align-items:center; gap:20px }
+.top-bar-item { display:flex; align-items:center; gap:6px }
+.top-bar-item svg { width:13px; height:13px; opacity:0.6 }
+.top-bar-right { font-size:12px; color:rgba(255,255,255,0.5) }
+.top-bar strong { color:rgba(255,255,255,0.9) }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    min-height: 100vh;
-    padding: 24px 16px 60px;
-  }
+/* ── HEADER ── */
+header {
+  position:sticky; top:0; z-index:100;
+  background:var(--white);
+  border-bottom:2px solid var(--blue);
+  padding:0 24px;
+  display:flex; justify-content:space-between; align-items:center;
+  height:68px;
+  box-shadow:var(--shadow-md);
+}
+.logo { display:flex; align-items:center; gap:12px }
+.logo-badge {
+  width:36px; height:36px;
+  background:var(--blue);
+  border-radius:6px;
+  display:flex; align-items:center; justify-content:center;
+}
+.logo-badge svg { width:20px; height:20px; fill:white }
+.logo-text { font-family:var(--font-sans); font-size:1.15rem; font-weight:700; color:var(--text); letter-spacing:-0.02em }
+.logo-text span { color:var(--blue-mid) }
+.logo-since { font-size:10px; color:var(--text-dim); font-weight:400; letter-spacing:0.05em; display:block; margin-top:-2px }
 
-  /* Grid background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,180,216,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,180,216,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-  }
+.header-right { display:flex; align-items:center; gap:16px }
+.header-phone {
+  display:flex; align-items:center; gap:8px;
+  font-size:15px; font-weight:700; color:var(--blue);
+  text-decoration:none;
+  letter-spacing:-0.01em;
+}
+.header-phone svg { width:16px; height:16px }
+.header-phone span { font-size:10px; font-weight:400; color:var(--text-dim); display:block; line-height:1 }
+.header-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--blue); color:var(--white);
+  font-size:13px; font-weight:600;
+  padding:10px 20px; border-radius:6px;
+  text-decoration:none;
+  transition:background 0.15s, box-shadow 0.15s;
+  box-shadow:0 2px 8px rgba(26,58,107,0.3);
+}
+.header-cta:hover { background:var(--blue-mid); box-shadow:0 4px 14px rgba(26,58,107,0.4) }
+.header-cta svg { width:14px; height:14px }
 
-  .wrap {
-    max-width: 820px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
+/* ── HERO ── */
+.hero {
+  background:var(--bg-dark);
+  background-image:linear-gradient(135deg, #1A2540 0%, #1E3A6B 60%, #1A2540 100%);
+  padding:64px 24px 72px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after {
+  content:'';
+  position:absolute; bottom:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, transparent, var(--blue-bright), transparent);
+}
+.hero-grid {
+  max-width:960px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 380px; gap:48px; align-items:center;
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.8);
+  font-size:11px; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:6px 14px; border-radius:4px;
+  margin-bottom:20px;
+}
+.live-dot { width:7px; height:7px; background:#4ADE80; border-radius:50% }
 
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 36px;
-  }
+.hero h1 {
+  font-family:var(--font-serif);
+  font-size:clamp(2rem, 4.5vw, 3.2rem);
+  font-weight:700;
+  line-height:1.15;
+  color:var(--white);
+  margin-bottom:16px;
+  letter-spacing:-0.02em;
+}
+.hero h1 em { font-style:italic; color:#93C5FD }
+.hero-sub {
+  font-size:16px; color:rgba(255,255,255,0.65);
+  font-weight:400; line-height:1.7;
+  margin-bottom:32px; max-width:480px;
+}
+.hero-trust {
+  display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px;
+}
+.htag {
+  display:flex; align-items:center; gap:6px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.75);
+  font-size:12px; font-weight:500;
+  padding:6px 12px; border-radius:4px;
+}
+.htag svg { width:13px; height:13px; color:#4ADE80 }
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg3);
-    border: 1px solid var(--border-bright);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    margin-bottom: 20px;
-  }
+.btn-wa {
+  display:inline-flex; align-items:center; gap:12px;
+  background:#1A9E4A; color:var(--white);
+  font-size:1rem; font-weight:700;
+  padding:16px 28px; border-radius:6px;
+  text-decoration:none;
+  transition:all 0.15s;
+  box-shadow:0 4px 16px rgba(26,158,74,0.25);
+  margin-bottom:12px;
+}
+.btn-wa:hover { background:#157A3A; transform:translateY(-1px); box-shadow:0 6px 22px rgba(26,158,74,0.32) }
+.btn-wa svg { width:20px; height:20px }
+.hero-note { font-size:12px; color:rgba(255,255,255,0.4) }
 
-  .badge-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 6px var(--green);
-    animation: pulse 2s infinite;
-  }
+/* Hero form card */
+.hero-card {
+  background:var(--white);
+  border-radius:10px;
+  padding:28px 24px;
+  box-shadow:var(--shadow-lg);
+  border-top:4px solid var(--blue);
+}
+.hero-card-title {
+  font-size:14px; font-weight:700; color:var(--text);
+  margin-bottom:4px;
+  display:flex; align-items:center; gap:8px;
+}
+.hero-card-title svg { width:16px; height:16px; color:var(--blue-mid) }
+.hero-card-sub { font-size:12px; color:var(--text-dim); margin-bottom:20px }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+.f-label { display:block; font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:5px }
+.f-input {
+  width:100%; background:var(--bg); border:1.5px solid var(--border);
+  border-radius:5px; color:var(--text);
+  font-size:14px; font-family:var(--font-sans);
+  padding:10px 13px; outline:none; margin-bottom:12px;
+  transition:border-color 0.15s, box-shadow 0.15s;
+  box-sizing:border-box;
+}
+.f-input:focus { border-color:var(--blue-mid); box-shadow:0 0 0 3px rgba(38,86,168,0.1) }
+.btn-form-primary {
+  width:100%; background:var(--blue); color:var(--white);
+  border:none; border-radius:6px;
+  font-family:var(--font-sans); font-size:14px; font-weight:700;
+  padding:13px; cursor:pointer;
+  transition:background 0.15s; margin-bottom:10px;
+}
+.btn-form-primary:hover { background:var(--blue-mid) }
+.f-trust { text-align:center; font-size:11px; color:var(--text-faint) }
 
-  h1 {
-    font-size: clamp(28px, 5vw, 44px);
-    font-weight: 700;
-    color: var(--text-bright);
-    line-height: 1.1;
-    margin-bottom: 10px;
-  }
+/* ── STATS ── */
+.stats-strip {
+  background:var(--white);
+  border-bottom:2px solid var(--border);
+  display:grid; grid-template-columns:repeat(3,1fr);
+}
+.stat-cell {
+  padding:24px 20px; text-align:center;
+  border-right:1px solid var(--border-light);
+  position:relative;
+}
+.stat-cell:last-child { border-right:none }
+.stat-num {
+  font-family:var(--font-serif);
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  font-weight:700; color:var(--blue);
+  display:block; line-height:1; margin-bottom:5px;
+  letter-spacing:-0.03em;
+}
+.stat-lbl { font-size:12px; color:var(--text-dim); font-weight:500 }
 
-  h1 span { color: var(--accent); }
+/* ── SECTION COMMONS ── */
+.section-wrap { padding:72px 24px; max-width:960px; margin:0 auto }
+.section-tag {
+  display:inline-block;
+  font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--blue-mid); border-left:3px solid var(--blue-mid);
+  padding-left:10px; margin-bottom:14px;
+}
+.section-h2 {
+  font-family:var(--font-serif);
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:700; color:var(--text);
+  line-height:1.2; letter-spacing:-0.02em;
+  margin-bottom:36px;
+}
+.section-h2 em { font-style:italic; color:var(--blue-mid) }
 
-  .subtitle {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-dim);
-    letter-spacing: 0.05em;
-  }
+/* ── PROCESO ── */
+.steps-bg { background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border) }
+.steps { display:flex; flex-direction:column }
+.step {
+  display:grid; grid-template-columns:64px 1fr; gap:20px;
+  align-items:flex-start; padding:28px 0;
+  border-bottom:1px solid var(--border-light);
+}
+.step:last-child { border-bottom:none }
+.step-num-box {
+  width:48px; height:48px;
+  background:var(--blue); color:var(--white);
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; font-weight:700; flex-shrink:0;
+  box-shadow:0 2px 8px rgba(26,58,107,0.25);
+}
+.step-time-tag {
+  display:inline-block;
+  background:var(--green-bg); color:var(--green);
+  border:1px solid var(--green-border);
+  font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  padding:3px 8px; border-radius:3px; margin-bottom:6px;
+}
+.step-title { font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px }
+.step-desc { font-size:14px; color:var(--text-dim); line-height:1.65 }
 
-  /* Cards */
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 16px;
-    transition: border-color 0.2s;
-  }
+/* ── PRICE SECTION ── */
+.price-bg { background:var(--bg-dark) }
+.price-inner { max-width:960px; margin:0 auto; padding:72px 24px }
+.price-inner .section-tag { color:#93C5FD; border-color:#93C5FD }
+.price-inner .section-h2 { color:var(--white) }
+.price-inner .section-h2 em { color:#93C5FD }
+.price-body { font-size:15px; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:14px }
+.price-body a { color:#93C5FD }
 
-  .card:hover { border-color: var(--border-bright); }
+/* ── GARANTIAS ── */
+.garantias-bg { background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border) }
+.garantias-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px }
+.g-card {
+  background:var(--bg); border:1.5px solid var(--border);
+  border-radius:8px; padding:20px;
+  display:flex; gap:14px; align-items:flex-start;
+  transition:border-color 0.15s, box-shadow 0.15s;
+}
+.g-card:hover { border-color:var(--blue-rule); box-shadow:var(--shadow-sm) }
+.g-icon {
+  width:40px; height:40px; min-width:40px;
+  background:var(--blue-light); border-radius:7px;
+  display:flex; align-items:center; justify-content:center;
+}
+.g-icon svg { width:20px; height:20px; color:var(--blue) }
+.g-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:3px }
+.g-desc { font-size:13px; color:var(--text-dim); line-height:1.55 }
 
-  .card-title {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-  }
+/* ── ALERTA ── */
+.alert-section { max-width:960px; margin:0 auto; padding:32px 24px 48px }
+.alert-box {
+  background:var(--red-bg); border:1px solid var(--red-border);
+  border-left:4px solid var(--red); border-radius:0 8px 8px 0; padding:16px 20px;
+}
+.alert-box p { font-size:14px; color:#7F1D1D; line-height:1.65 }
+.alert-box strong { color:#991B1B }
 
-  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .row.triple { grid-template-columns: 1fr 1fr 1fr; }
+/* ── KEYWORDS ── */
+.kw-bg { background:var(--bg) }
+.kw-grid { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:0 }
+.kw-tag {
+  background:var(--white); border:1px solid var(--border);
+  color:var(--text-mid); font-size:13px; font-weight:500;
+  padding:8px 16px; border-radius:5px;
+}
+.kw-tag.hot {
+  background:var(--blue-light); border-color:var(--blue-rule);
+  color:var(--blue); font-weight:600;
+}
 
-  @media (max-width: 600px) {
-    .row, .row.triple { grid-template-columns: 1fr; }
-  }
+/* ── CONTACTO SECTION ── */
+.contact-bg { background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border) }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start }
+.contact-info h3 {
+  font-family:var(--font-serif); font-size:1.5rem; font-weight:700;
+  color:var(--text); margin-bottom:8px;
+}
+.contact-info p { font-size:15px; color:var(--text-dim); line-height:1.7; margin-bottom:24px }
+.contact-method {
+  display:flex; align-items:flex-start; gap:14px;
+  padding:16px; background:var(--bg);
+  border:1.5px solid var(--border); border-radius:8px; margin-bottom:12px;
+  text-decoration:none; transition:border-color 0.15s, box-shadow 0.15s;
+}
+.contact-method:hover { border-color:var(--blue-rule); box-shadow:var(--shadow-sm) }
+.contact-method-icon {
+  width:44px; height:44px; min-width:44px;
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+}
+.contact-method-icon.wa { background:#E8F5E9 }
+.contact-method-icon.tel { background:var(--blue-light) }
+.contact-method-icon svg { width:22px; height:22px }
+.contact-method-label { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:3px }
+.contact-method-value { font-size:17px; font-weight:700; color:var(--text); letter-spacing:-0.01em }
+.contact-method-sub { font-size:12px; color:var(--text-faint) }
 
-  .field { display: flex; flex-direction: column; gap: 6px; }
-  .field.full { grid-column: 1 / -1; }
+.contact-form-card {
+  background:var(--bg); border:1.5px solid var(--border);
+  border-radius:10px; padding:28px 24px;
+  border-top:4px solid var(--blue);
+}
+.contact-form-title { font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px }
+.contact-form-sub { font-size:13px; color:var(--text-dim); margin-bottom:20px }
 
-  label {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+/* ── CTA FINAL ── */
+.cta-final-bg { background:var(--bg-darker) }
+.cta-final-inner { max-width:680px; margin:0 auto; padding:80px 24px; text-align:center }
+.cta-final-inner h2 {
+  font-family:var(--font-serif);
+  font-size:clamp(2rem,5vw,3rem);
+  font-weight:700; color:var(--white);
+  line-height:1.15; letter-spacing:-0.02em; margin-bottom:12px;
+}
+.cta-final-inner h2 em { font-style:italic; color:#93C5FD }
+.cta-final-inner p { font-size:15px; color:rgba(255,255,255,0.5); margin-bottom:32px }
+.btn-final-white {
+  display:inline-flex; align-items:center; gap:12px;
+  background:var(--white); color:var(--blue);
+  font-size:1rem; font-weight:700;
+  padding:18px 36px; border-radius:6px; text-decoration:none;
+  transition:all 0.15s; box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.btn-final-white:hover { background:var(--blue-light); transform:translateY(-2px) }
+.btn-final-white svg { width:20px; height:20px }
 
-  input, select, textarea {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-bright);
-    font-family: var(--mono);
-    font-size: 13px;
-    padding: 10px 14px;
-    width: 100%;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
+/* ── EDITORIAL ── */
+.editorial { background:var(--bg); border-top:1px solid var(--border); padding:24px; text-align:center }
+.editorial p { font-size:13px; color:var(--text-dim); line-height:1.65 }
+.editorial a { color:var(--blue-mid) }
 
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(0,180,216,0.1);
-  }
+/* ── FOOTER ── */
+footer {
+  background:var(--white); border-top:2px solid var(--border);
+  padding:24px; display:flex; align-items:center;
+  justify-content:space-between; flex-wrap:wrap; gap:12px;
+}
+.footer-copy { font-size:12px; color:var(--text-faint) }
+.footer-links { display:flex; gap:1.5rem }
+.footer-links a { font-size:12px; color:var(--text-dim); text-decoration:none; transition:color 0.15s }
+.footer-links a:hover { color:var(--blue) }
 
-  select {
-    appearance: none;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7fa3' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 32px;
-  }
+/* ── WA FLOAT ── */
+.wa-float {
+  position:fixed; bottom:24px; right:24px; z-index:999;
+  width:52px; height:52px; background:#1A9E4A;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 3px 12px rgba(26,158,74,0.35); text-decoration:none;
+  transition:transform 0.2s; animation:floatIn 0.5s 0.8s both;
+}
+@keyframes floatIn { from{opacity:0;transform:scale(0.5)} to{opacity:1;transform:scale(1)} }
+.wa-float:hover { transform:scale(1.08) }
+.wa-float svg { width:24px; height:24px }
 
-  select option { background: var(--bg3); }
+/* ── FAQ ── */
+.faq-bg { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border) }
+.faq-list { display:flex; flex-direction:column; gap:0 }
+.faq-item {
+  border-bottom:1px solid var(--border-light);
+  padding:20px 0;
+}
+.faq-item:last-child { border-bottom:none }
+.faq-q {
+  font-size:15px; font-weight:700; color:var(--text);
+  margin-bottom:8px; display:flex; align-items:flex-start; gap:12px;
+}
+.faq-q-num {
+  font-size:11px; font-weight:700; color:var(--blue-mid);
+  background:var(--blue-light); border-radius:4px;
+  padding:2px 7px; flex-shrink:0; margin-top:2px;
+}
+.faq-a { font-size:14px; color:var(--text-dim); line-height:1.7; padding-left:36px }
 
-  textarea {
-    resize: vertical;
-    min-height: 80px;
-    line-height: 1.5;
-  }
+/* ── BANCOS ── */
+.bancos-strip {
+  background:var(--white);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:24px;
+  text-align:center;
+}
+.bancos-label {
+  font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--text-faint); margin-bottom:12px;
+}
+.bancos-list {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
+}
+.banco-tag {
+  background:var(--bg); border:1px solid var(--border);
+  color:var(--text-mid); font-size:13px; font-weight:500;
+  padding:7px 16px; border-radius:5px;
+}
 
-  textarea.code-area {
-    min-height: 220px;
-    font-size: 12px;
-    line-height: 1.6;
-    font-family: var(--mono);
-  }
-
-  /* Hint */
-  .hint {
-    font-size: 11px;
-    color: var(--text-dim);
-    font-family: var(--mono);
-    margin-top: 4px;
-  }
-
-  /* Buttons */
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: all 0.15s;
-    width: 100%;
-  }
-
-  .btn-secondary {
-    background: var(--bg3);
-    border: 1px solid var(--border-bright);
-    color: var(--text);
-  }
-
-  .btn-secondary:hover {
-    background: var(--border);
-    color: var(--text-bright);
-  }
-
-  .btn-primary {
-    background: var(--accent2);
-    color: #fff;
-    border: 1px solid var(--accent);
-  }
-
-  .btn-primary:hover {
-    background: var(--accent);
-    box-shadow: 0 0 20px rgba(0,180,216,0.3);
-  }
-
-  .btn-danger {
-    background: transparent;
-    border: 1px solid var(--red);
-    color: var(--red);
-  }
-
-  .btn-danger:hover {
-    background: rgba(239,71,111,0.1);
-  }
-
-  .btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  .btn-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
-    margin-top: 4px;
-  }
-
-  /* Status / log */
-  .log-area {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-family: var(--mono);
-    font-size: 12px;
-    line-height: 1.7;
-    min-height: 60px;
-    max-height: 280px;
-    overflow-y: auto;
-    color: var(--text-dim);
-    display: none;
-  }
-
-  .log-area.visible { display: block; }
-
-  .log-area .ok   { color: var(--green); }
-  .log-area .err  { color: var(--red); }
-  .log-area .warn { color: var(--yellow); }
-  .log-area .info { color: var(--accent); }
-  .log-area .dim  { color: var(--text-dim); }
-
-  /* Result box */
-  .result-box {
-    display: none;
-    border-radius: 10px;
-    padding: 18px 20px;
-    font-family: var(--mono);
-    font-size: 13px;
-    line-height: 1.8;
-    margin-top: 0;
-  }
-
-  .result-box.ok {
-    display: block;
-    background: rgba(6,214,160,0.07);
-    border: 1px solid rgba(6,214,160,0.3);
-    color: var(--green);
-  }
-
-  .result-box.err {
-    display: block;
-    background: rgba(239,71,111,0.07);
-    border: 1px solid rgba(239,71,111,0.3);
-    color: var(--red);
-  }
-
-  .result-box a {
-    color: var(--accent);
-    text-decoration: underline;
-    word-break: break-all;
-  }
-
-  /* Current content preview */
-  .current-meta {
-    display: none;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-top: 10px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    line-height: 1.7;
-  }
-
-  .current-meta.visible { display: block; }
-  .current-meta strong { color: var(--accent); }
-
-  /* Tag */
-  .tag {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-  }
-
-  .tag-tier1 { background: rgba(239,71,111,0.15); color: var(--red); border: 1px solid rgba(239,71,111,0.3); }
-  .tag-tier2 { background: rgba(255,209,102,0.1); color: var(--yellow); border: 1px solid rgba(255,209,102,0.3); }
-  .tag-tier3 { background: rgba(6,214,160,0.1); color: var(--green); border: 1px solid rgba(6,214,160,0.3); }
-
-  /* Tier info */
-  .tier-info {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    font-size: 11px;
-    font-family: var(--mono);
-    color: var(--text-dim);
-  }
-
-  .tier-info.visible { display: flex; }
-
-  /* Separator */
-  .sep {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 20px 0;
-  }
-
-  /* Char counter */
-  .char-counter {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    text-align: right;
-    margin-top: 4px;
-  }
-
-  .char-counter.warn { color: var(--yellow); }
-  .char-counter.over { color: var(--red); }
-
-  /* Spinner */
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .spinner {
-    width: 14px; height: 14px;
-    border: 2px solid rgba(255,255,255,0.2);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 0.6s linear infinite;
-    display: none;
-  }
-  .spinning { display: inline-block; }
+/* ── RESPONSIVE (agregar) ── */
+@media(max-width:768px) {
+  .top-bar-right { display:none }
+  .hero-grid { grid-template-columns:1fr; gap:40px }
+  .hero-card { order:-1 }
+  .stats-strip { grid-template-columns:1fr }
+  .stat-cell { border-right:none; border-bottom:1px solid var(--border-light) }
+  .stat-cell:last-child { border-bottom:none }
+  .garantias-grid { grid-template-columns:1fr }
+  .contact-grid { grid-template-columns:1fr }
+  header { padding:0 16px }
+  .header-right .header-phone { display:none }
+  footer { flex-direction:column; text-align:center }
+}
+@media(min-width:1024px) {
+  header { padding:0 48px }
+  footer { padding:24px 48px }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      GIROCUPO DEPLOY AGENT v3
-    </div>
-    <h1>GitHub <span>Propose</span></h1>
-    <p class="subtitle">// cloudflare worker · PR-based · human-in-the-loop · surgical editor</p>
+<!-- WA flotante -->
+<a href="https://wa.me/56963026000?text=Hola%2C%20quiero%20vender%20mi%20cupo%20en%20d%C3%B3lares.%20%C2%BFMe%20pueden%20cotizar%3F" class="wa-float" aria-label="WhatsApp" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.054 1.476 5.765L0 24l6.395-1.437C8.062 23.463 10 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.497-5.058-1.365l-.362-.214-3.747.842.858-3.64-.237-.375C2.497 15.639 2 13.876 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<!-- Top bar institucional -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span class="top-bar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Lun–Vie <strong>9:00 – 18:30</strong></span>
+    </span>
+    <span class="top-bar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.55-.55a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <strong>+56 2 3210 8299</strong>
+    </span>
+    <span class="top-bar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span>Más de <strong>20 años</strong> en el mercado</span>
+    </span>
   </div>
-
-  <!-- Configuración -->
-  <div class="card">
-    <div class="card-title">⚙ Configuración</div>
-    <div class="row">
-      <div class="field">
-        <label>Worker URL</label>
-        <input type="text" id="workerUrl" value="https://api.girodolares.cl" />
-      </div>
-      <div class="field">
-        <label>PROPOSE_TOKEN (Bearer)</label>
-        <input type="password" id="proposeToken" placeholder="tu PROPOSE_TOKEN aquí..." />
-      </div>
-    </div>
-  </div>
-
-  <!-- Destino -->
-  <div class="card">
-    <div class="card-title">📦 Destino</div>
-    <div class="row">
-      <div class="field">
-        <label>Repo</label>
-        <select id="repo" onchange="onRepoChange()">
-          <option value="girodolares-web">girodolares-web</option>
-          <option value="cupodolares-web">cupodolares-web</option>
-          <option value="vendocupo-web" selected>vendocupo-web</option>
-          <option value="ventadecupo-web">ventadecupo-web</option>
-          <option value="cambiocupo-web">cambiocupo-web</option>
-          <option value="cambiarcupo-web">cambiarcupo-web</option>
-          <option value="cupodolareschile-web">cupodolareschile-web</option>
-        </select>
-        <div class="tier-info" id="tierInfo">
-          <span class="tag" id="tierTag"></span>
-          <span id="tierLimit"></span>
-        </div>
-      </div>
-      <div class="field">
-        <label>Path</label>
-        <input type="text" id="filePath" value="index.html" placeholder="index.html" />
-        <div class="hint">Ej: index.html · ciudades/santiago/index.html · _data/page.json</div>
-      </div>
-    </div>
-
-    <div style="margin-top: 12px;">
-      <button class="btn btn-secondary" onclick="leerArchivo()">
-        <span class="spinner" id="spinnerRead"></span>
-        ↓ LEER ARCHIVO ACTUAL
-      </button>
-    </div>
-    <div class="current-meta" id="currentMeta"></div>
-  </div>
-
-  <!-- Propuesta -->
-  <div class="card">
-    <div class="card-title">✏ Propuesta</div>
-    <div class="row triple">
-      <div class="field">
-        <label>Tipo de cambio</label>
-        <select id="proposalType">
-          <option value="title_update">title_update</option>
-          <option value="meta_update">meta_update</option>
-          <option value="faq_update">faq_update</option>
-          <option value="internal_link">internal_link</option>
-          <option value="city_content">city_content</option>
-          <option value="blog_post">blog_post</option>
-          <option value="schema_update">schema_update</option>
-          <option value="other">other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Modelo AI</label>
-        <select id="aiModel">
-          <option value="claude-opus-4-5">claude-opus-4-5</option>
-          <option value="claude-sonnet-4-5" selected>claude-sonnet-4-5</option>
-          <option value="claude-haiku-4-5">claude-haiku-4-5</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>PR Title</label>
-        <input type="text" id="prTitle" placeholder="Mejora meta description vendocupo" />
-      </div>
-    </div>
-
-    <div class="field full" style="margin-top:14px;">
-      <label>Razón / Contexto del cambio</label>
-      <textarea id="reason" placeholder="Ej: La meta description actual tiene 180 chars y está truncada. Se acorta a 155 chars y se incluye keyword principal." oninput="countChars('reason','reasonCount',300)"></textarea>
-      <div class="char-counter" id="reasonCount">0 / 300</div>
-    </div>
-
-    <hr class="sep">
-
-    <div class="field full">
-      <label>Contenido HTML/JSON completo del archivo</label>
-      <textarea class="code-area" id="fileContent" placeholder="Pegá acá el contenido completo del archivo modificado (generado por Claude)..." oninput="countChars('fileContent','contentCount',262144)"></textarea>
-      <div class="char-counter" id="contentCount">0 / 256KB</div>
-    </div>
-
-    <div class="btn-row" style="margin-top: 16px;">
-      <button class="btn btn-danger" onclick="limpiarTodo()">✕ LIMPIAR</button>
-      <button class="btn btn-primary" id="btnPropose" onclick="enviarPropuesta()">
-        <span class="spinner" id="spinnerPropose"></span>
-        → CREAR PR EN GITHUB
-      </button>
-    </div>
-  </div>
-
-  <!-- Log -->
-  <div class="log-area" id="logArea"></div>
-
-  <!-- Result -->
-  <div class="result-box" id="resultBox"></div>
 
 </div>
 
+<!-- Header -->
+<header>
+  <div class="logo">
+    <div class="logo-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+    </div>
+    <div>
+      <div class="logo-text">Vendo<span>Cupo</span>.cl</div>
+      <span class="logo-since">Operando desde 2002</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="tel:+56223108299" class="header-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.55-.55a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <div><span style="font-size:10px;font-weight:400;color:var(--text-dim);display:block;line-height:1.2;">Mesa comercial</span>+56 2 3210 8299</div>
+    </a>
+    <a href="https://wa.me/56963026000?text=Hola%2C%20quiero%20vender%20mi%20cupo%20en%20d%C3%B3lares.%20%C2%BFMe%20pueden%20cotizar%3F" class="header-cta" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.054 1.476 5.765L0 24l6.395-1.437C8.062 23.463 10 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.497-5.058-1.365l-.362-.214-3.747.842.858-3.64-.237-.375C2.497 15.639 2 13.876 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Cotizar por WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="live-dot"></span>Mesa comercial · Respuesta en menos de 15 minutos</div>
+      <h1>Compra de cupo en dólares en Chile<br><em>pago el mismo día hábil</em></h1>
+      <p class="hero-sub">Convierte el cupo de tu tarjeta Visa, Mastercard o Amex a pesos chilenos. Sin claves bancarias, sin letra chica, comprobante en cada operación.</p>
+      <div class="hero-trust">
+        <span class="htag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Sin claves bancarias</span>
+        <span class="htag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>+21.000 clientes</span>
+        <span class="htag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Pago mismo día hábil</span>
+        <span class="htag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>+20 años en el mercado</span>
+      </div>
+      <a href="https://wa.me/56963026000?text=Hola%2C%20quiero%20vender%20mi%20cupo%20en%20d%C3%B3lares.%20%C2%BFMe%20pueden%20cotizar%3F" class="btn-wa" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.054 1.476 5.765L0 24l6.395-1.437C8.062 23.463 10 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.497-5.058-1.365l-.362-.214-3.747.842.858-3.64-.237-.375C2.497 15.639 2 13.876 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Quiero cotizar por WhatsApp
+      </a>
+      <p class="hero-note">WhatsApp +56 9 6302 6000 · Lun–Vie 9:00–18:30</p>
+    </div>
+
+    <!-- Formulario en el hero -->
+    <div class="hero-card">
+      <div class="hero-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Cotización por email
+      </div>
+      <p class="hero-card-sub">Te respondemos en menos de 15 minutos en horario hábil.</p>
+      <div id="hf-w">
+        <form id="hf-f" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="82fa11e9-11dc-46c4-947d-2195d4c94229">
+          <input type="hidden" name="subject" value="Nueva cotización — vendocupo.cl">
+          <input type="hidden" name="from_name" value="VendoCupo Web">
+          <input type="hidden" name="redirect" value="false">
+          <label class="f-label">Nombre</label>
+          <input type="text" name="nombre" placeholder="Tu nombre" class="f-input">
+          <label class="f-label">Teléfono</label>
+          <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" class="f-input">
+          <label class="f-label">Email</label>
+          <input type="email" name="email" placeholder="tu@email.com" class="f-input">
+          <label class="f-label">Monto aproximado (USD)</label>
+          <input type="number" name="monto_usd" placeholder="Ej: 2000" min="300" class="f-input">
+          <button type="submit" id="hf-btn" class="btn-form-primary">Enviar consulta</button>
+          <p class="f-trust">🔒 Sin claves bancarias · Sin compromiso</p>
+        </form>
+      </div>
+      <div id="hf-ok" style="display:none;text-align:center;padding:24px 0;">
+        <div style="font-size:36px;margin-bottom:10px;">✅</div>
+        <p style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">¡Consulta recibida!</p>
+        <p style="font-size:13px;color:var(--text-dim);margin-bottom:18px;">Te respondemos en menos de 15 minutos.</p>
+        <a href="https://wa.me/56963026000" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:6px;text-decoration:none;">También por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-strip">
+  <div class="stat-cell"><span class="stat-num">&lt;15'</span><span class="stat-lbl">Tiempo de cotización</span></div>
+  <div class="stat-cell"><span class="stat-num">+21K</span><span class="stat-lbl">Clientes atendidos</span></div>
+  <div class="stat-cell"><span class="stat-num">+20</span><span class="stat-lbl">Años en el mercado</span></div>
+</div>
+
+<!-- Proceso -->
+<div class="steps-bg">
+  <div class="section-wrap">
+    <div class="section-tag">Proceso</div>
+    <h2 class="section-h2">4 pasos, <em>pesos en tu cuenta hoy</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-box">1</div>
+        <div>
+          <span class="step-time-tag">2 minutos</span>
+          <p class="step-title">Envías un mensaje por WhatsApp</p>
+          <p class="step-desc">Solo tu nombre y el monto aproximado en dólares. Sin formularios, sin documentos previos.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-box">2</div>
+        <div>
+          <span class="step-time-tag">Menos de 15 minutos</span>
+          <p class="step-title">Recibes tu cotización exacta</p>
+          <p class="step-desc">El monto exacto en pesos que recibirías hoy. Sin costos ocultos, sin letra chica.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-box">3</div>
+        <div>
+          <span class="step-time-tag">Sin presión</span>
+          <p class="step-title">Decides si te conviene</p>
+          <p class="step-desc">Si el precio te convence, avisas y coordinamos. Cotizar no te compromete a nada.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-box">4</div>
+        <div>
+          <span class="step-time-tag">Mismo día hábil</span>
+          <p class="step-title">Los pesos llegan a tu cuenta</p>
+          <p class="step-desc">Operas con tu tarjeta y transferimos directo a tu cuenta bancaria el mismo día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Precio -->
+<div class="price-bg">
+  <div class="price-inner">
+    <div class="section-tag">Precio</div>
+    <h2 class="section-h2">¿Cuánto vale tu cupo <em>en dólares hoy?</em></h2>
+    <p class="price-body">El valor depende del tipo de cambio del día, el banco emisor y el monto disponible. En general, el cálculo se basa en el dólar observado con un ajuste operativo. No existe un precio fijo — el único precio real es el de la cotización del día.</p>
+    <p class="price-body">Para entender mejor cómo se calcula, puedes revisar la guía sobre el <a href="https://www.girodolares.cl/blog/precio-cupo-dolares-chile/" rel="noopener">precio del cupo en dólares en Chile</a>. Si tienes dudas sobre el proceso completo, la <a href="https://www.girodolares.cl/cupo-en-dolares/" rel="noopener">guía de cupo en dólares de GiroDólares</a> explica cada etapa en detalle.</p>
+  </div>
+</div>
+
+<!-- Garantías -->
+<div class="garantias-bg">
+  <div class="section-wrap">
+    <div class="section-tag">Por qué elegirnos</div>
+    <h2 class="section-h2">Sin sorpresas, <em>sin riesgos</em></h2>
+    <div class="garantias-grid">
+      <div class="g-card">
+        <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><p class="g-title">Sin claves bancarias</p><p class="g-desc">En ninguna etapa del proceso pedimos acceso a tu banca online, PIN ni coordenadas.</p></div>
+      </div>
+      <div class="g-card">
+        <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><p class="g-title">Cotización en 15 minutos</p><p class="g-desc">Ves el monto exacto en pesos antes de comprometerte. Sin presión, sin costos ocultos.</p></div>
+      </div>
+      <div class="g-card">
+        <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg></div>
+        <div><p class="g-title">Pago el mismo día</p><p class="g-desc">Transferencia bancaria directa a tu cuenta el mismo día hábil de la operación.</p></div>
+      </div>
+      <div class="g-card">
+        <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div><p class="g-title">+20 años en el mercado</p><p class="g-desc">Más de 21.000 clientes atendidos desde 2002. Trayectoria verificable y comprobante en cada operación.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Alerta -->
+<div class="alert-section">
+  <div class="alert-box">
+    <p><strong>⚠ Señal de alerta:</strong> Si un operador te pide tu clave bancaria, PIN o coordenadas — detén la operación. Ningún servicio serio necesita esos datos para comprarte el cupo en dólares.</p>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="kw-bg">
+  <div class="section-wrap" style="padding-top:48px;padding-bottom:48px;">
+    <div class="section-tag">Nuestro servicio</div>
+    <h2 class="section-h2" style="margin-bottom:16px;">Cupo en dólares a <em>pesos hoy</em></h2>
+    <p style="font-size:15px;color:var(--text-dim);margin-bottom:24px;max-width:560px;line-height:1.7;">Convertimos cupo en dólares de tarjetas de crédito a pesos chilenos mediante una cotización rápida y atención directa. Operamos con Visa, Mastercard y American Express, sin tope máximo de monto.</p>
+    <div class="kw-grid">
+      <span class="kw-tag hot">Vender cupo en dólares</span>
+      <span class="kw-tag hot">Avance cupo en dólares</span>
+      <span class="kw-tag hot">Cupo en dólares Chile</span>
+    </div>
+  </div>
+</div>
+
+<!-- Bancos compatibles -->
+<div class="bancos-strip">
+  <p class="bancos-label">Compatible con tarjetas emitidas por</p>
+  <div class="bancos-list">
+    <span class="banco-tag">Santander</span>
+    <span class="banco-tag">Banco de Chile</span>
+    <span class="banco-tag">BCI</span>
+    <span class="banco-tag">Itaú</span>
+    <span class="banco-tag">Scotiabank</span>
+    <span class="banco-tag">Falabella</span>
+    <span class="banco-tag">Visa · Mastercard · Amex</span>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-bg">
+  <div class="section-wrap">
+    <div class="section-tag">Preguntas frecuentes</div>
+    <h2 class="section-h2">Lo que necesitas <em>saber antes de operar</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-q-num">01</span>¿Es legal vender cupo en dólares en Chile?</p>
+        <p class="faq-a">Sí. Es una operación legal en Chile. La compraventa de cupo en dólares de tarjeta de crédito es una transacción privada que opera con normalidad desde hace más de 20 años en el mercado chileno.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-q-num">02</span>¿Con qué bancos trabajan?</p>
+        <p class="faq-a">Trabajamos con tarjetas emitidas por Santander, Banco de Chile, BCI, Itaú, Scotiabank, Falabella y otros bancos del sistema chileno. Las tarjetas deben ser Visa, Mastercard o American Express con cupo disponible en dólares.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-q-num">03</span>¿Piden claves bancarias o acceso a mi cuenta?</p>
+        <p class="faq-a">No. Nunca solicitamos claves bancarias, PIN, coordenadas ni acceso a banca online. En ninguna etapa del proceso. Si algún operador te pide esos datos, detén la operación de inmediato.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-q-num">04</span>¿Cuánto demora la operación?</p>
+        <p class="faq-a">La cotización se entrega en menos de 15 minutos desde que envías tu consulta. Si la aceptas, el pago se realiza el mismo día hábil mediante transferencia bancaria directa a tu cuenta.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-q-num">05</span>¿Cuál es el monto mínimo para operar?</p>
+        <p class="faq-a">El monto mínimo es USD 300. No existe tope máximo. El precio final depende del tipo de cambio del día y se informa en la cotización, sin costos ocultos ni letra chica.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contacto -->
+<div class="contact-bg">
+  <div class="section-wrap">
+    <div class="section-tag">Contacto</div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Habla directamente<br>con nosotros</h3>
+        <p>Somos un equipo real. Respondemos en minutos, no en días. Elige el canal que prefieres.</p>
+        <a href="https://wa.me/56963026000?text=Hola%2C%20quiero%20vender%20mi%20cupo%20en%20d%C3%B3lares.%20%C2%BFMe%20pueden%20cotizar%3F" class="contact-method" rel="noopener">
+          <div class="contact-method-icon wa">
+            <svg viewBox="0 0 24 24" fill="#16A34A"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.054 1.476 5.765L0 24l6.395-1.437C8.062 23.463 10 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.497-5.058-1.365l-.362-.214-3.747.842.858-3.64-.237-.375C2.497 15.639 2 13.876 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </div>
+          <div>
+            <p class="contact-method-label">WhatsApp — Cotización inmediata</p>
+            <p class="contact-method-value">+56 9 6302 6000</p>
+            <p class="contact-method-sub">Respuesta en menos de 15 minutos · Lun–Vie 9:00–18:30</p>
+          </div>
+        </a>
+        <a href="tel:+56223108299" class="contact-method">
+          <div class="contact-method-icon tel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.55-.55a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <p class="contact-method-label">Atención comercial — Oficina</p>
+            <p class="contact-method-value">+56 2 3210 8299</p>
+            <p class="contact-method-sub">Mesa comercial · Lun–Vie 9:00–18:30</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="contact-form-card">
+        <p class="contact-form-title">Envíanos tu consulta</p>
+        <p class="contact-form-sub">Completa el formulario y te contactamos en menos de 15 minutos.</p>
+        <div id="cf-w">
+          <form id="cf-f" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="82fa11e9-11dc-46c4-947d-2195d4c94229">
+            <input type="hidden" name="subject" value="Nueva cotización — vendocupo.cl">
+            <input type="hidden" name="from_name" value="VendoCupo Web">
+            <input type="hidden" name="redirect" value="false">
+            <label class="f-label">Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" class="f-input">
+            <label class="f-label">Teléfono</label>
+            <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" class="f-input">
+            <label class="f-label">Email</label>
+            <input type="email" name="email" placeholder="tu@email.com" class="f-input">
+            <label class="f-label">Monto aproximado (USD)</label>
+            <input type="number" name="monto_usd" placeholder="Ej: 2000" min="300" class="f-input">
+            <button type="submit" id="cf-btn" class="btn-form-primary">Enviar consulta</button>
+            <p class="f-trust">🔒 Sin claves bancarias · Sin compromiso</p>
+          </form>
+        </div>
+        <div id="cf-ok" style="display:none;text-align:center;padding:24px 0;">
+          <div style="font-size:36px;margin-bottom:10px;">✅</div>
+          <p style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">¡Consulta recibida!</p>
+          <p style="font-size:13px;color:var(--text-dim);">Te respondemos en menos de 15 minutos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Final -->
+<div class="cta-final-bg">
+  <div class="cta-final-inner">
+    <h2>¿Listo para convertir<br><em>tu cupo hoy?</em></h2>
+    <p>Un mensaje es todo lo que necesitas. En 15 minutos tienes el número exacto.</p>
+    <a href="https://wa.me/56963026000?text=Hola%2C%20quiero%20vender%20mi%20cupo%20en%20d%C3%B3lares.%20%C2%BFMe%20pueden%20cotizar%3F" class="btn-final-white" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.054 1.476 5.765L0 24l6.395-1.437C8.062 23.463 10 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.497-5.058-1.365l-.362-.214-3.747.842.858-3.64-.237-.375C2.497 15.639 2 13.876 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Cotizar por WhatsApp ahora
+    </a>
+  </div>
+</div>
+
+<!-- Editorial -->
+<div class="editorial">
+  <p>Si quieres entender mejor cómo funciona el cupo en dólares antes de operar, revisa la <a href="https://www.girodolares.cl/cupo-en-dolares/" rel="noopener">guía completa en GiroDólares</a> — más de 20 años comprando cupo en Chile.</p>
+</div>
+
+<!-- Bloque institucional -->
+<div style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:960px;margin:0 auto;padding:36px 24px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;justify-content:space-between;">
+    <div>
+      <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue-mid);border-left:3px solid var(--blue-mid);padding-left:10px;margin-bottom:12px;">Sobre nosotros</p>
+      <p style="font-size:13px;color:var(--text-dim);line-height:1.8;max-width:400px;">Atención comercial en Santiago de Chile.<br>Operando desde 2002 · Más de 21.000 clientes atendidos.<br>Cotización y comprobante en cada operación.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px;">Contacto directo</p>
+      <a href="tel:+56223108299" style="font-size:13px;color:var(--text-mid);text-decoration:none;display:flex;align-items:center;gap:7px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.55-.55a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Mesa comercial: +56 2 3210 8299
+      </a>
+      <a href="https://wa.me/56963026000" style="font-size:13px;color:var(--text-mid);text-decoration:none;display:flex;align-items:center;gap:7px;" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#16A34A"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.054 1.476 5.765L0 24l6.395-1.437C8.062 23.463 10 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.497-5.058-1.365l-.362-.214-3.747.842.858-3.64-.237-.375C2.497 15.639 2 13.876 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp: +56 9 6302 6000
+      </a>
+      <a href="https://www.girodolares.cl/" style="font-size:13px;color:var(--blue-mid);text-decoration:none;display:flex;align-items:center;gap:7px;" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        girodolares.cl
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p class="footer-copy">© 2026 VendoCupo.cl™ · Todos los derechos reservados · Prohibida la reproducción total o parcial sin autorización expresa.</p>
+  <div class="footer-links">
+    <a href="/quienes-somos/">Quiénes somos</a>
+    <a href="https://www.girodolares.cl/politica-de-privacidad/" rel="noopener">Privacidad</a>
+    <a href="https://www.girodolares.cl/terminos-y-condiciones/" rel="noopener">Términos</a>
+  </div>
+</footer>
+
 <script>
-const TIERS = {
-  'girodolares-web':      { tier: 1, limit: '1 PR/día', tag: 'TIER 1 — CRÍTICO' },
-  'cupodolares-web':      { tier: 1, limit: '1 PR/día', tag: 'TIER 1 — CRÍTICO' },
-  'vendocupo-web':        { tier: 2, limit: '1 PR/día', tag: 'TIER 2 — CAPTURA' },
-  'ventadecupo-web':      { tier: 2, limit: '1 PR/día', tag: 'TIER 2 — CAPTURA' },
-  'cambiocupo-web':       { tier: 2, limit: '1 PR/día', tag: 'TIER 2 — CAPTURA' },
-  'cambiarcupo-web':      { tier: 2, limit: '1 PR/día', tag: 'TIER 2 — CAPTURA' },
-  'cupodolareschile-web': { tier: 3, limit: '3 PR/día', tag: 'TIER 3 — SANDBOX' },
-};
-
-function onRepoChange() {
-  const repo = document.getElementById('repo').value;
-  const info = TIERS[repo];
-  const tierInfo = document.getElementById('tierInfo');
-  const tierTag = document.getElementById('tierTag');
-  const tierLimit = document.getElementById('tierLimit');
-
-  tierInfo.className = 'tier-info visible';
-  tierTag.textContent = info.tag;
-  tierTag.className = `tag tag-tier${info.tier}`;
-  tierLimit.textContent = `Límite: ${info.limit}`;
+function setupForm(formId, btnId, wrapId, okId) {
+  document.getElementById(formId).addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById(btnId);
+    btn.textContent = 'Enviando...'; btn.disabled = true;
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', { method:'POST', body:new FormData(this) });
+      const d = await r.json();
+      if (d.success) {
+        document.getElementById(wrapId).style.display = 'none';
+        document.getElementById(okId).style.display = 'block';
+      } else { btn.textContent = 'Enviar consulta'; btn.disabled = false; }
+    } catch(err) { btn.textContent = 'Enviar consulta'; btn.disabled = false; }
+  });
 }
-
-function log(msg, type = 'dim') {
-  const area = document.getElementById('logArea');
-  area.classList.add('visible');
-  const ts = new Date().toLocaleTimeString('es-CL');
-  area.innerHTML += `<div class="${type}">[${ts}] ${msg}</div>`;
-  area.scrollTop = area.scrollHeight;
-}
-
-function clearLog() {
-  const area = document.getElementById('logArea');
-  area.innerHTML = '';
-  area.classList.remove('visible');
-}
-
-function setResult(type, html) {
-  const box = document.getElementById('resultBox');
-  box.className = `result-box ${type}`;
-  box.innerHTML = html;
-}
-
-function clearResult() {
-  const box = document.getElementById('resultBox');
-  box.className = 'result-box';
-  box.innerHTML = '';
-}
-
-function countChars(inputId, counterId, max) {
-  const len = document.getElementById(inputId).value.length;
-  const counter = document.getElementById(counterId);
-  const label = max >= 1000 ? `${len} / ${Math.round(max/1024)}KB` : `${len} / ${max}`;
-  counter.textContent = label;
-  counter.className = 'char-counter' + (len > max * 0.9 ? ' warn' : '') + (len > max ? ' over' : '');
-}
-
-function spinner(id, show) {
-  document.getElementById(id).classList.toggle('spinning', show);
-}
-
-async function leerArchivo() {
-  const url = document.getElementById('workerUrl').value.trim();
-  const token = document.getElementById('proposeToken').value.trim();
-  const repo = document.getElementById('repo').value;
-  const path = document.getElementById('filePath').value.trim();
-
-  if (!url || !token) { log('⚠ Completá Worker URL y PROPOSE_TOKEN', 'warn'); return; }
-  if (!path) { log('⚠ Ingresá un path', 'warn'); return; }
-
-  clearLog();
-  clearResult();
-  spinner('spinnerRead', true);
-  log(`Leyendo ${repo}/${path}...`, 'info');
-
-  try {
-    const res = await fetch(`${url}/read?repo=${encodeURIComponent(repo)}&path=${encodeURIComponent(path)}`, {
-      headers: { 'x-giro-auth': token }
-    });
-
-    if (!res.ok) {
-      const txt = await res.text();
-      log(`Error ${res.status}: ${txt}`, 'err');
-      spinner('spinnerRead', false);
-      return;
-    }
-
-    const data = await res.json();
-    const content = data.content;
-
-    // Llenar textarea
-    document.getElementById('fileContent').value = content;
-    countChars('fileContent', 'contentCount', 262144);
-
-    // Extraer metadatos
-    const titleMatch = content.match(/<title[^>]*>([^<]+)<\/title>/i);
-    const descMatch = content.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
-    const h1Match = content.match(/<h1[^>]*>([^<]+)<\/h1>/i);
-
-    const meta = document.getElementById('currentMeta');
-    meta.className = 'current-meta visible';
-    meta.innerHTML = `
-      <strong>SHA:</strong> ${data.sha}<br>
-      ${titleMatch ? `<strong>TITLE:</strong> ${titleMatch[1].trim()} (${titleMatch[1].trim().length} chars)<br>` : ''}
-      ${descMatch ? `<strong>META DESC:</strong> ${descMatch[1].trim()} (${descMatch[1].trim().length} chars)<br>` : ''}
-      ${h1Match ? `<strong>H1:</strong> ${h1Match[1].trim()}<br>` : ''}
-      <strong>TAMAÑO:</strong> ${(content.length / 1024).toFixed(1)} KB
-    `;
-
-    log(`✓ Archivo leído — ${(content.length/1024).toFixed(1)} KB · SHA ${data.sha.slice(0,8)}`, 'ok');
-  } catch(e) {
-    log(`Error de red: ${e.message}`, 'err');
-  }
-
-  spinner('spinnerRead', false);
-}
-
-async function enviarPropuesta() {
-  clearLog();
-  clearResult();
-
-  const url = document.getElementById('workerUrl').value.trim();
-  const token = document.getElementById('proposeToken').value.trim();
-  const repo = document.getElementById('repo').value;
-  const path = document.getElementById('filePath').value.trim();
-  const title = document.getElementById('prTitle').value.trim();
-  const reason = document.getElementById('reason').value.trim();
-  const content = document.getElementById('fileContent').value;
-  const proposalType = document.getElementById('proposalType').value;
-  const aiModel = document.getElementById('aiModel').value;
-
-  // Validaciones locales
-  if (!url || !token) { log('⚠ Completá Worker URL y PROPOSE_TOKEN', 'warn'); return; }
-  if (!title) { log('⚠ Ingresá un título para el PR', 'warn'); return; }
-  if (!reason) { log('⚠ Completá la razón del cambio', 'warn'); return; }
-  if (!path) { log('⚠ Ingresá el path del archivo', 'warn'); return; }
-  if (!content) { log('⚠ El contenido del archivo está vacío', 'warn'); return; }
-
-  const tier = TIERS[repo].tier;
-  if (tier === 1) {
-    const confirmTier1 = confirm(`⚠️ TIER 1 CRÍTICO\n\nEstás a punto de crear un PR en ${repo}.\n\nHay un límite de 1 PR/día. ¿Confirmás?`);
-    if (!confirmTier1) { log('Cancelado por el usuario', 'warn'); return; }
-  }
-
-  spinner('spinnerPropose', true);
-  document.getElementById('btnPropose').disabled = true;
-
-  log(`Preparando propuesta para ${repo}/${path}...`, 'info');
-  log(`Tipo: ${proposalType} · Modelo: ${aiModel}`, 'dim');
-
-  const payload = {
-    repo,
-    title,
-    reason,
-    proposal_type: proposalType,
-    ai_model: aiModel,
-    files: [
-      {
-        path,
-        content: utf8ToBase64(content)
-      }
-    ]
-  };
-
-  log('Enviando a /propose...', 'info');
-
-  try {
-    const res = await fetch(`${url}/propose`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify(payload)
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      log(`Error ${res.status}: ${data.error || JSON.stringify(data)}`, 'err');
-      setResult('err', `
-        ✕ Error ${res.status}<br>
-        <br>
-        ${data.error || JSON.stringify(data, null, 2)}
-        ${data.details ? `<br><br>Detalles: ${JSON.stringify(data.details)}` : ''}
-      `);
-    } else {
-      log(`✓ PR creado — #${data.pr_number}`, 'ok');
-      log(`Branch: ${data.branch}`, 'ok');
-      log(`Preview: ${data.preview_url || '(generando...)'}`, 'ok');
-      log(`Proposal ID: ${data.proposal_id}`, 'dim');
-
-      setResult('ok', `
-        ✓ PR #${data.pr_number} creado en GitHub<br>
-        <br>
-        <strong>Branch:</strong> ${data.branch}<br>
-        <strong>Proposal ID:</strong> ${data.proposal_id}<br>
-        ${data.preview_url ? `<strong>Preview:</strong> <a href="${data.preview_url}" target="_blank">${data.preview_url}</a><br>` : ''}
-        <strong>PR:</strong> <a href="https://github.com/GiroCupo/${repo}/pull/${data.pr_number}" target="_blank">Ver PR en GitHub →</a><br>
-        <br>
-        Revisá el diff, cargá el preview, aprobá si todo OK.
-      `);
-    }
-  } catch(e) {
-    log(`Error de red: ${e.message}`, 'err');
-    setResult('err', `Error de red: ${e.message}`);
-  }
-
-  spinner('spinnerPropose', false);
-  document.getElementById('btnPropose').disabled = false;
-}
-
-function limpiarTodo() {
-  document.getElementById('prTitle').value = '';
-  document.getElementById('reason').value = '';
-  document.getElementById('fileContent').value = '';
-  document.getElementById('filePath').value = 'index.html';
-  document.getElementById('currentMeta').className = 'current-meta';
-  countChars('fileContent', 'contentCount', 262144);
-  countChars('reason', 'reasonCount', 300);
-  clearLog();
-  clearResult();
-}
-
-function utf8ToBase64(str) {
-  const bytes = new TextEncoder().encode(str);
-  let bin = "";
-  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-  return btoa(bin);
-}
-
-// Init
-onRepoChange();
+setupForm('hf-f','hf-btn','hf-w','hf-ok');
+setupForm('cf-f','cf-btn','cf-w','cf-ok');
 </script>
+
 </body>
 </html>
