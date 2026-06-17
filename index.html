@@ -622,11 +622,7 @@ footer {
       </div>
       <p class="hero-card-sub">Te respondemos en menos de 15 minutos en horario hábil.</p>
       <div id="hf-w">
-        <form id="hf-f" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="82fa11e9-11dc-46c4-947d-2195d4c94229">
-          <input type="hidden" name="subject" value="Nueva cotización — vendocupo.cl">
-          <input type="hidden" name="from_name" value="VendoCupo Web">
-          <input type="hidden" name="redirect" value="false">
+        <form id="hf-f" action="https://api.girodolares.cl/lead" method="POST">
           <label class="f-label">Nombre</label>
           <input type="text" name="nombre" placeholder="Tu nombre" class="f-input">
           <label class="f-label">Teléfono</label>
@@ -833,7 +829,7 @@ footer {
         <p class="contact-form-title">Envíanos tu consulta</p>
         <p class="contact-form-sub">Completa el formulario y te contactamos en menos de 15 minutos.</p>
         <div id="cf-w">
-          <form id="cf-f" action="https://api.web3forms.com/submit" method="POST">
+          <form id="cf-f" action="https://api.girodolares.cl/lead" method="POST">
             <input type="hidden" name="access_key" value="82fa11e9-11dc-46c4-947d-2195d4c94229">
             <input type="hidden" name="subject" value="Nueva cotización — vendocupo.cl">
             <input type="hidden" name="from_name" value="VendoCupo Web">
@@ -919,7 +915,9 @@ function setupForm(formId, btnId, wrapId, okId) {
     const btn = document.getElementById(btnId);
     btn.textContent = 'Enviando...'; btn.disabled = true;
     try {
-      const r = await fetch('https://api.web3forms.com/submit', { method:'POST', body:new FormData(this) });
+      const f = this;
+      const g = n => { const el = f.querySelector('[name='+n+']'); return el ? el.value : ''; };
+      const r = await fetch('https://api.girodolares.cl/lead', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ nombre: g('nombre'), email: g('email'), telefono: g('telefono'), monto_usd: g('monto_usd'), sitio: 'vendocupo.cl', canal: 'email' }) });
       const d = await r.json();
       if (d.success) {
         document.getElementById(wrapId).style.display = 'none';
@@ -934,15 +932,7 @@ setupForm('cf-f','cf-btn','cf-w','cf-ok');
 
 <script>
 function trackWA() {
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      access_key: '82fa11e9-11dc-46c4-947d-2195d4c94229',
-      subject: 'Click WhatsApp - ' + window.location.href,
-      message: 'Click WhatsApp desde: ' + window.location.href
-    })
-  }).catch(function(){});
+  (window.dataLayer=window.dataLayer||[]).push({event:'whatsapp_click',wa_location:window.location.href});
 }
 </script>
 </body>
